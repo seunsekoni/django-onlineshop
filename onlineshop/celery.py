@@ -3,10 +3,10 @@ from celery import Celery
 # set the default Django settings module for the 'celery' program.
 # set the DJANGO_SETTINGS_MODULE variable for the Celery command-line
 # program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myshop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onlineshop.settings')
 
 # create an instance of the application with app = Celery('myshop').
-app = Celery('myshop')
+app = Celery('onlineshop')
 
 # Load any custom configuration from your project settings using the
 # config_from_object() method. The namespace attribute specifies the
