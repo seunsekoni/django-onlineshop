@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
+    'payment.apps.PaymentConfig'
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # custom context processors
-                'cart.context_processors.cart'
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -157,5 +158,19 @@ EMAIL_PORT = env('EMAIL_PORT')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+
+# Braintree settings
+BRAINTREE_MERCHANT_ID = env('BRAINTREE_MERCHANT_ID') # Merchant ID
+BRAINTREE_PUBLIC_KEY = env('BRAINTREE_PUBLIC_KEY') # Public Key
+BRAINTREE_PRIVATE_KEY = env('BRAINTREE_PRIVATE_KEY') # Private key
+
+import braintree
+
+BRAINTREE_CONF = braintree.Configuration(
+    braintree.Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
 
 
