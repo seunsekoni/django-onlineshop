@@ -175,3 +175,7 @@ BRAINTREE_CONF = braintree.Configuration(
 )
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+REDIS_HOST = env('REDIS_HOST')
+REDIS_PORT=env('REDIS_PORT')
+REDIS_DB=env('REDIS_DB')
